@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recipe</title>
+  <%- include('../partials/head') %>
+</head>
+<body>
+  <header>
+    <h1>Recipe</h1>
+  </header>
+
+  <main>
+    <nav class="sidenav">
+      <ul><a href="/views/index.ejs">Home</a></ul>
+      <ul><a href="/views/pages/searches/inventory.ejs">Your Refrigerator</a></ul>
+      <ul><a href="/views/pages/searches/shop.ejs">Shop For More Food</a></ul>
+      <ul><a href="/views/aboutus.ejs">About Us</a></ul>
+    </nav>
+    
+
+    <!-- RENDER RECIPES FOUND -->
+    <!-- NEED TO REFACTOR ACCORDING TO THE ARRAY OF OBJECT -->
+
+    <ul>
+        <% arrayOfRecipes.forEach( item => { %>
+          <img src="<%= item.image %>"/>
+          <h2><%= recipe.title %></h2>
+          <p>Serving Size: <%=recipe.serving-size%></p> 
+          <!-- <img src="<%=recipe.image%>" alt="recipe image">
+          <p>Instruction: <%=recipe.instruction %></p> -->
+        <% }) %>
+    </ul>
+    <div class="formsDescription">
+      <img src=<%=item.image_url %>>
+      <button class="show(<%= index %>)">Detail</button>
+<div id="detailsDescription<%= index %>">
+<h2>Title:
+  <%= item.title %>
+</h2>
+<p>Author:
+  <%= item.author %>
+</p>
+<p>ISBN:
+  <%= item.isbn %>
+</p>
+<p>Description:
+  <%= item.description %>
+</p>
+  <button class="show_hide">Save Book</button>
+    <form id="popup" action="/save" method="post">
+      <input type="text" name="title" placeholder="Enter title" value="<%= item.title %>" required>
+      <input type="text" name="author" placeholder="Enter author" value="<%= item.author %>" required>
+      <input type="text" name="isbn" placeholder="Enter isbn" value="<%= item.isbn %>" required>
+      <input type="text" name="description" placeholder="Enter description" value="<%= item.description %>"required>
+      <input type="text" name="image_url" placeholder="Enter image URL" value="<%= item.image_url %>" required>
+      <input type="text" name="bookshelf" placeholder="Enter bookshelf name" value="default" required>
+      <button type="submit" class="hide">Close popup</button>
+    </form>
+  </div>
+  <div class="formsDescription">
+      <button class="show_hide">Save Book</button>
+        <form id="popup" action="/save" method="post">
+          <input type="text" name="title" placeholder="Enter title" value="<%= item.title %>" required>
+          <input type="text" name="author" placeholder="Enter author" value="<%= item.author %>" required>
+          <input type="text" name="isbn" placeholder="Enter isbn" value="<%= item.isbn %>" required>
+          <input type="text" name="description" placeholder="Enter description" value="<%= item.description %>"required>
+          <input type="text" name="image_url" placeholder="Enter image URL" value="<%= item.image_url %>" required>
+          <input type="text" name="bookshelf" placeholder="Enter bookshelf name" value="default" required>
+          <button type="submit" class="hide">Close popup</button>
+        </form>
+      </div>
+      <div class="formsDescription">
+          <button class="show_hide">Save Book</button>
+            <form id="popup" action="/save" method="post">
+              <input type="text" name="title" placeholder="Enter title" value="<%= item.title %>" required>
+              <input type="text" name="author" placeholder="Enter author" value="<%= item.author %>" required>
+              <input type="text" name="isbn" placeholder="Enter isbn" value="<%= item.isbn %>" required>
+              <input type="text" name="description" placeholder="Enter description" value="<%= item.description %>"required>
+              <input type="text" name="image_url" placeholder="Enter image URL" value="<%= item.image_url %>" required>
+              <input type="text" name="bookshelf" placeholder="Enter bookshelf name" value="default" required>
+              <button type="submit" class="hide">Close popup</button>
+            </form>
+          </div>
+ 
+    <a href="/pages/searches/inventory">Back To Your Refrigerator</a>
+    <a href="/pages/searches/shop">Back To Shopping</a>
+
+
+  </main>
+</body>
+<footer>
+    <p>CopyRight2018</p>
+</footer>
+</html>

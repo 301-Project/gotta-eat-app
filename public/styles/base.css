@@ -1,0 +1,32 @@
+h1 {
+    font-size: 45px;
+    font-family: RTitillium Web;
+    font: italic bolder;
+}
+
+h2 {
+    font-size: 30px;
+    font-family: Roboto Condensed;
+}
+
+p {
+    font-family: PT Sans Narrow;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+	margin: 0 auto;
+text-align: center;
+}
+
+
+
+
+
+
+
+
+
