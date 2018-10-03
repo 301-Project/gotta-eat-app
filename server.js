@@ -40,7 +40,7 @@ app.set('view engine', 'ejs');
 // client.on('error', err => console.log(err));
 
 //API routes - rendering the search form
-// app.get('/', queryIngredient);
+app.get('/product-id', queryIngredient);
 // app.post();
 app.get('/', (request, response) => response.render('index'));
 // app.post();
@@ -48,22 +48,21 @@ app.get('/', (request, response) => response.render('index'));
 // app.get();
 // app.delete();
 
+queryIngredient();
+function queryIngredient(request, response) {
+  let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?maxCalories=5000&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=0&minCarbs=0&minFat=0&minProtein=0&number=3&offset=0&query=banana`
 
-// function queryIngredient(request, response) {
-//   let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?maxCalories=5000&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=0&minCarbs=0&minFat=0&minProtein=0&number=3&offset=0&query=${request.body.search}`
+  request.body.search === 'user-query' 
 
-//   request.body.search === 'user-query' 
-
-//   return unirest.get(url)
-//     .header('X-Mashape-Key', 'mIT2MR9NsemshS18ftwfHAa4hIybp1zgsUfjsnRn7WLWTReipL')
-//     .header('Accept', 'application/json')
-//     .end(function (result) {
-//       console.log(result.status, result.headers, result.body);
-//     })
-//     .catch(error => handleError(error, response));
+  return unirest.get(url)
+    .header('X-Mashape-Key', 'mIT2MR9NsemshS18ftwfHAa4hIybp1zgsUfjsnRn7WLWTReipL')
+    .header('Accept', 'application/json')
+    .end(function (result) {
+      console.log(result.status, result.headers, result.body);
+    })
 //   // .then(apiResponse => apiResponse.body.items.map(book => new Book(book.volumeInfo)))
 //   // .then(books => response.render('pages/searches/show', { arrayOfBooks: books }))
-// }
+}
 
 // Creates three recipe choices from the API url query
 // function createRecipe(request, response) {
