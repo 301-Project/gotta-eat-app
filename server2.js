@@ -1,28 +1,28 @@
 `use strict`;
 
 // Application Dependencies
-const express = require('express');
+// const express = require('express');
 const superagent = require('superagent');
 const pg = require('pg');
 const methodOverride = require('method-override');
-const unirest = require('unirest');
+// const unirest = require('unirest');
 
 // Load environment variables from .env file
-require('dotenv').config();
+// require('dotenv').config();
 
-// Application Setup
-const app = express();
-const PORT = process.env.PORT;
-
-
+// // Application Setup
+// const app = express();
+// const PORT = process.env.PORT;
 
 
-//Application Middleware
-app.use(express.static('./views'));
-app.use(express.urlencoded({ extended: true }));
 
-//Set the view engine for server side templating
-app.set('view engine', 'ejs');
+
+// //Application Middleware
+// app.use(express.static('./views'));
+// app.use(express.urlencoded({ extended: true }));
+
+// //Set the view engine for server side templating
+// app.set('view engine', 'ejs');
 
 //Allowing for methods:put/delete
 app.use(methodOverride(function (request, response) {
@@ -84,15 +84,15 @@ function createRecipe(request, response) {
 
 }
 
-// Catch-all error handler
-app.get('*', (request, response) => response.status(404).send('This route does not exist'));
-app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
+// // Catch-all error handler
+// app.get('*', (request, response) => response.status(404).send('This route does not exist'));
+// app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
-// Helper Functions
-function handleError(err, res) {
-  console.error(err);
-  if (res) res.status(500).send('Sorry, something went wrong')
-}
+// // Helper Functions
+// function handleError(err, res) {
+//   console.error(err);
+//   if (res) res.status(500).send('Sorry, something went wrong')
+// }
 
 function Ingredient(response) {
   this.ingredient_id = response.products.id || 'No id available';
