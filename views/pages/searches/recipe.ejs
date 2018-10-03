@@ -23,6 +23,15 @@
     </nav>
     
 
+    <ul>
+      <% recipeArray.forEach(item => { %>
+        <li><%=item.recipe_title %></li>
+        <img src="<%=item.recipe_image %>"/> 
+        <% }) %>
+    </ul>
+
+    
+
   </main>
 </body>
 <footer>

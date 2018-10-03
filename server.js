@@ -42,17 +42,29 @@ function Recipes(response) {
 
 function getRecipeId(request, response) {
   let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${request.query.search}&limitLicense=false&number3&ranking=1`;
+  let recipeArray = [];
 
-  console.log('recipe_id');
   return superagent.get(url)
     .set('X-Mashape-Key', process.env.FOOD_API_KEY)
     .set('Accept', 'application/json')
-    .then(function (result) {
-      console.log(result.status, result.body)
-      result.body.map(recipe => new Recipes(recipe))
+    // .then(function (result) {
+    //   console.log(result.status, result.body)
+    //   // result.body.map(recipe => new Recipes(recipe))
+    // })
+    .then(apiResponse => {
+      recipeArray = apiResponse.body.map(element => {
+        let summary = new Recipes(element);
+        return summary;
+       
+      });
+      console.log('from recipeArrat',recipeArray);
+      return recipeArray;
     })
     .then(searchResult => response.render('pages/searches/recipe', {
       recipeArray: searchResult
     }))
     .catch(error => handleError(error, response));
 }
+
+
+
