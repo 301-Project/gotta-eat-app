@@ -22,6 +22,7 @@ app.set('view engine', 'ejs');
 
 //API routes - rendering the search form
 app.get('/', (request, response) => response.render('index'));
+app.get('/get-id', getProductId);
 
 // Catch-all error handler
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
@@ -37,13 +38,16 @@ function Ingredients (response) {
   this.ingredients_id = response.products.id;
 }
 
-function queryIngredients(request, response) {
-  let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?maxCalories=5000&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=0&minCarbs=0&minFat=0&minProtein=0&number=3&offset=0&query=bananas`;
+function getProductId (request, response) {
+  let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?maxCalories=5000&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=0&minCarbs=0&minFat=0&minProtein=0&number=3&offset=0&query=${request.query.search}`;
 
   return unirest.get(url)
-    .header('X-Mashape-Key', 'mIT2MR9NsemshS18ftwfHAa4hIybp1zgsUfjsnRn7WLWTReipL')
+    .header('X-Mashape-Key', 'process.env.FOOD_API_KEY')
     .header('Accept', 'application/json')
     .end(function (result) {
       console.log(result.status, result.headers, result.body);
     })
+    .then(apiResponse => apiResponse.body.map(ingredient => new Ingredients(ingredient)))
+    .then()
+    // .catch(error => handleError(error, response));
 }

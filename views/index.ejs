@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Home</title>
-<<<<<<< HEAD
-  <!-- <%- include('../partials/head') %> -->
-=======
+	<title>Home</title>
 
->>>>>>> f1232006380287cb26cf52221d82ca06869c34e4
 </head>
 <body>
   
@@ -30,6 +26,11 @@
 				<button class="landingPageButton"><a href="/views/pages/searches/inventory.ejs">See Your Refrigerator</a></button>
 				<button class="landingPageButton" action="search" method="post">Search For Recipe</button>
 			</div>
+
+			<form action="/get-id" method="get">
+				<input type="text" name="search" placeholder="Enter Ingredient" required="required" />
+				<button type="submit">Search Ingredient Id</button>
+			</form>
 
 
 
