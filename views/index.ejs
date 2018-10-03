@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Home</title>
+	<title>Home</title>
 
 </head>
 <body>
@@ -26,6 +26,11 @@
 				<button class="landingPageButton"><a href="/views/pages/searches/inventory.ejs">See Your Refrigerator</a></button>
 				<button class="landingPageButton" action="search" method="post">Search For Recipe</button>
 			</div>
+
+			<form action="/get-id" method="get">
+				<input type="text" name="search" placeholder="Enter Ingredient" required="required" />
+				<button type="submit">Search Ingredient Id</button>
+			</form>
 
 
 
