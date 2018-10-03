@@ -1,5 +1,3 @@
-
-
 `use strict`;
 
 // Application Dependencies
@@ -34,27 +32,24 @@ function handleError(err, res) {
   if (res) res.status(500).send('Sorry, something went wrong')
 }
 
-function Ingredients (response) {
-  this.ingredients_id = response.products.id;
+function Recipes (response) {
+  this.recipe_id = response.id;
+  this.recipe_title = response.title;
+  this.recipe_image = response.image;
+  this.used_ingredient_count = response.usedIngredientCount;
+  this.missed_ingredient_count = response.missedIngredientCount;
 }
 
 function getProductId (request, response) {
-  let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?maxCalories=5000&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=0&minCarbs=0&minFat=0&minProtein=0&number=3&offset=0&query=${request.query.search}`;
+  let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?ingredients=${request.query.search}&number=3&ranking=1")`;
 
   return unirest.get(url)
     .header('X-Mashape-Key', 'process.env.FOOD_API_KEY')
-    .header('Accept', 'application/json')
+    .header('X-Mashape-Host', 'spoonacular-recipe-food-nutrition-v1.p.mashape.com')
     .end(function (result) {
       console.log(result.status, result.headers, result.body);
     })
-    .then(apiResponse => apiResponse.body.map(ingredient => new Ingredients(ingredient)))
-    .then(result => response.render())
+    // .then(apiResponse => apiResponse.body.map(recipe => new Recipes(recipe)))
+    // .then(result => response.render())
     // .catch(error => handleError(error, response));
 }
-
-unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?ingredients=banana+milk+sugar+pineapple&number=3&ranking=1")
-.header("X-Mashape-Key", "wbhi6grFr8mshx3O5F5ZxYqD6fSEp1ZXkAujsnPiZGi50hvt0N")
-.header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
-.end(function (result) {
-  console.log(result.status, result.headers, result.body);
-});
