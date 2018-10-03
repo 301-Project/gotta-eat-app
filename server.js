@@ -48,6 +48,13 @@ function getProductId (request, response) {
       console.log(result.status, result.headers, result.body);
     })
     .then(apiResponse => apiResponse.body.map(ingredient => new Ingredients(ingredient)))
-    .then()
+    .then(result => response.render())
     // .catch(error => handleError(error, response));
 }
+
+unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?ingredients=banana+milk+sugar+pineapple&number=3&ranking=1")
+.header("X-Mashape-Key", "wbhi6grFr8mshx3O5F5ZxYqD6fSEp1ZXkAujsnPiZGi50hvt0N")
+.header("X-Mashape-Host", "spoonacular-recipe-food-nutrition-v1.p.mashape.com")
+.end(function (result) {
+  console.log(result.status, result.headers, result.body);
+});
