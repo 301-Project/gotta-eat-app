@@ -69,9 +69,14 @@ function getRecipeId(request, response) {
 
 
 function getOneRecipe(request, response) {
-  console.log('HELLO>>>>>>');
-  console.log( 'request.body is ',request.body);
   let pickedRecipe = request.params.id;
   console.log( 'this got picked', pickedRecipe);
+  let SQL = 'INSERT INTO recipes(recipe_id) VALUES ($1) RETURNING id;';
+  let values = [pickedRecipe];
+
+  return client.query(SQL, values)
+    .then(results => response.redirect(`/recipes/${results.rows[0].id}`))
+    .catch(err => handleError(err, response));
+  
 }
 
