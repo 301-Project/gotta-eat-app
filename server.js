@@ -3,6 +3,11 @@
 // Application Dependencies
 const express = require('express');
 const superagent = require('superagent');
+const pg = require('pg');
+
+const client = new pg.Client('postgres://localhost:5432/food_app');
+client.connect();
+client.on('error', err => console.log(err));
 
 // Load environment variables from .env file
 require('dotenv').config();
@@ -21,7 +26,7 @@ app.set('view engine', 'ejs');
 //API routes - rendering the search form
 app.get('/', (request, response) => response.render('index'));
 app.get('/get-id', getRecipeId);
-
+app.post('/picked-recipe', getOneRecipe); //event handler 
 // Catch-all error handler
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
@@ -47,17 +52,13 @@ function getRecipeId(request, response) {
   return superagent.get(url)
     .set('X-Mashape-Key', process.env.FOOD_API_KEY)
     .set('Accept', 'application/json')
-    // .then(function (result) {
-    //   console.log(result.status, result.body)
-    //   // result.body.map(recipe => new Recipes(recipe))
-    // })
+
     .then(apiResponse => {
       recipeArray = apiResponse.body.map(element => {
         let summary = new Recipes(element);
         return summary;
-       
+
       });
-      console.log('from recipeArrat',recipeArray);
       return recipeArray;
     })
     .then(searchResult => response.render('pages/searches/recipe', {
@@ -66,5 +67,12 @@ function getRecipeId(request, response) {
     .catch(error => handleError(error, response));
 }
 
+
+function getOneRecipe(request, response) {
+  console.log('HELLO>>>>>>');
+  console.log( 'request.body is ',response);
+  let pickedRecipe = response.body.recipe_id;
+  console.log( 'this got picked', pickedRecipe);
+}
 
 
