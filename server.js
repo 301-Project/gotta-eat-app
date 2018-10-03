@@ -26,7 +26,7 @@ app.set('view engine', 'ejs');
 //API routes - rendering the search form
 app.get('/', (request, response) => response.render('index'));
 app.get('/get-id', getRecipeId);
-app.post('/picked-recipe', getOneRecipe); //event handler 
+app.post('/picked-recipe/:id', getOneRecipe); //event handler 
 // Catch-all error handler
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
@@ -70,9 +70,8 @@ function getRecipeId(request, response) {
 
 function getOneRecipe(request, response) {
   console.log('HELLO>>>>>>');
-  console.log( 'request.body is ',response);
-  let pickedRecipe = response.body.recipe_id;
+  console.log( 'request.body is ',request.body);
+  let pickedRecipe = request.params.id;
   console.log( 'this got picked', pickedRecipe);
 }
-
 

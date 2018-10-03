@@ -26,7 +26,7 @@
     <ul>
       
       <% recipeArray.forEach((item, index) => { %>
-        <form action="/picked-recipe" method = "post">
+        <form action="/picked-recipe/<%= item.recipe_id %>"" method = "post">
         <li><%=item.recipe_title %></li>
         <img src="<%=item.recipe_image %>"/> 
         
