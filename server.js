@@ -2,7 +2,6 @@
 
 // Application Dependencies
 const express = require('express');
-const unirest = require('unirest');
 const superagent = require('superagent');
 
 // Load environment variables from .env file
@@ -21,10 +20,7 @@ app.set('view engine', 'ejs');
 
 //API routes - rendering the search form
 app.get('/', (request, response) => response.render('index'));
-app.get('/get-id', getProductId);
-
-// app.get('/get-recipe', getRecipe);
-app.get('/render-recipe', (request, response) => response.render('pages/searches/inventory'));
+app.get('/get-id', getRecipeId);
 
 // Catch-all error handler
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
@@ -44,20 +40,30 @@ function Recipes(response) {
   this.missed_ingredient_count = response.missedIngredientCount;
 }
 
-function getProductId(request, response) {
+function getRecipeId(request, response) {
   let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${request.query.search}&limitLicense=false&number3&ranking=1`;
-  return unirest.get(url)
+  let recipeArray = [];
+
+  return superagent.get(url)
     .set('X-Mashape-Key', process.env.FOOD_API_KEY)
-    .header('Accept', 'application/json')
-    .end(function (result) {
-      console.log(result.status, result.body.map(element => element.id))
-      result.body.map(recipe => {
-        let idArray = new Recipes(recipe)
-        console.log(idArray); // TODO: Delete this console log when completed
-        return idArray;
-      })
+    .set('Accept', 'application/json')
+    // .then(function (result) {
+    //   console.log(result.status, result.body)
+    //   // result.body.map(recipe => new Recipes(recipe))
+    // })
+    .then(apiResponse => {
+      recipeArray = apiResponse.body.map(element => {
+        let summary = new Recipes(element);
+        return summary;
+       
+      });
+      console.log('from recipeArrat',recipeArray);
+      return recipeArray;
     })
-    .send('pages/searches/recipe',{ arrayOfRecipe : "recipe" }))
+    .then(searchResult => response.render('pages/searches/recipe', {
+      recipeArray: searchResult
+    }))
+    .catch(error => handleError(error, response));
 }
 
 
