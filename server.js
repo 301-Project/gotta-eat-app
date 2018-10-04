@@ -1,10 +1,13 @@
-
-
 `use strict`;
 
 // Application Dependencies
 const express = require('express');
-const unirest = require('unirest');
+const superagent = require('superagent');
+const pg = require('pg');
+
+const client = new pg.Client('postgres://localhost:5432/food_app');
+client.connect();
+client.on('error', err => console.log(err));
 
 // Load environment variables from .env file
 require('dotenv').config();
@@ -20,15 +23,11 @@ app.use(express.urlencoded({ extended: true }));
 //Set the view engine for server side templating
 app.set('view engine', 'ejs');
 
-//constructor for search query
-let searchQuery = [];
-
 //API routes - rendering the search form
 app.get('/', (request, response) => response.render('index'));
-app.get('/get-id', getProductId);
-
-// app.get('/get-recipe', getRecipe);
-app.get('/render-recipe', (request, response) => response.render('pages/searches/inventory'));
+app.get('/get-id', getRecipeId);
+app.post('/picked-recipe/:id', getOneRecipe);
+app.post('/recipes', addRecipe);
 
 // Catch-all error handler
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
@@ -40,48 +39,65 @@ function handleError(err, res) {
   if (res) res.status(500).send('Sorry, something went wrong')
 }
 
-function Ingredients (response) {
-  this.ingredients_id = response.body;
-  // this.title = response.title;
-  // this.image = response.image;
-  // this.usedIngredient = response.usedIngredientCount;
-  // this.missedIngredient = response.missedIngredientCount;
-  // this.likes = response.likes;
+function Recipes(response) {
+  this.recipe_id = response.id;
+  this.recipe_title = response.title;
+  this.recipe_image = response.image;
+  this.used_ingredient_count = response.usedIngredientCount;
+  this.missed_ingredient_count = response.missedIngredientCount;
 }
 
+function getRecipeId(request, response) {
+  let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${request.query.search}&limitLicense=false&number3&ranking=1`;
+  let recipeArray = [];
 
-function getProductId (request, response) {
-  let url =`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=${request.query.search}&limitLicense=false&number5&ranking=1`;
-  return unirest.get(url)
-    .header('X-Mashape-Key', process.env.FOOD_API_KEY)
-    .header('Accept', 'application/json')
-    .end(function (result) {
-      console.log(result.status, result.body.map(element => element.id))
-      result.body.map(ingredient => new Ingredients(ingredient.id))})
+  return superagent.get(url)
+    .set('X-Mashape-Key', process.env.FOOD_API_KEY)
+    .set('Accept', 'application/json')
 
-    // .catch(error => handleError(error, response));
+    .then(apiResponse => {
+      recipeArray = apiResponse.body.map(element => {
+        let summary = new Recipes(element);
+        return summary;
+
+      });
+      return recipeArray;
+    })
+    .then(searchResult => response.render('pages/searches/recipe', {
+      recipeArray: searchResult
+    }))
+    .catch(error => handleError(error, response));
 }
 
-// function getProductId (request, response) {
-//   let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/products/search?maxCalories=5000&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=0&minCarbs=0&minFat=0&minProtein=0&number=3&offset=0&query=${request.query.search}`;
+function Resultrecipe(response) {
+  this.result_title = response.title || 'the girl has no name';
+  this.result_image = response.image || 'no image available';
+  this.result_url = response.spoonacularSourceUrl || 'no source';
+  this.diets = response.diets || 'No dietary restriction available';
+}
 
-//   return unirest.get(url)
-//     .header('X-Mashape-Key', 'process.env.FOOD_API_KEY')
-//     .header('Accept', 'application/json')
-//     .end(function (result) {
-//       console.log(result.status, result.headers, result.body);
-//     })
-//     .then(apiResponse => apiResponse.body.map(ingredient => new Ingredients(ingredient)))
-//     .then()
-    // .catch(error => handleError(error, response));
-// }
-// function getRecipe (request, response) {
-//   let url =`https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/479101/information?includeNutrition=false`;
+function getOneRecipe(request, response) {
+  let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${request.params.id}/information?includeNutrition=false`
+  
+  return superagent.get(url)
+    .set('X-Mashape-Key', process.env.FOOD_API_KEY)
+    .set('X-Mashape-Host', 'spoonacular-recipe-food-nutrition-v1.p.mashape.com')
+    .then(apiResponse => {
+      return new Resultrecipe(apiResponse.body);
+    })
+    .then(searchResult => response.render('pages/searches/result', {
+      recipeResultObject: searchResult
+    }))
+    .catch(error => handleError(error, response));
+}
 
-//   return unirest.get(url)
-// .header("X-Mashape-Key", process.env.FOOD_API_KEY)
-// .header("Accept", "application/json")
-// .end(function (result) {
-//   console.log(result.status, result.headers, result.body);
-// });
-// };
+function addRecipe(request, response) {
+  let { result_title, result_image, result_url, diets} = request.body;
+
+  let SQL = 'INSERT INTO recipes(result_title, result_image, result_url, diets) VALUES ($1, $2, $3, $4);';
+
+  let values = [result_title, result_image, result_url, diets];
+  client.query(SQL, values)
+    .catch(error => handleError(error, response))
+}
+
