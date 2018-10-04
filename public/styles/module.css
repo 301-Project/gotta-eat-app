@@ -221,3 +221,13 @@ input[type=range] {
   border: 5px solid #9AD3DE;
 }
 
+.about-img {
+  width: 300px;
+}
+
+.about-text {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+}

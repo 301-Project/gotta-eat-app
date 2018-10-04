@@ -2,8 +2,14 @@
 <html>
 <head>
 	<title>Home</title>
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+	<link href="/styles/reset.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/base.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/layout.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/module.css" rel="stylesheet" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
   
     <div class="container">
@@ -23,14 +29,17 @@
 			</div>
 
 			<div class="main-button">
-				<button class="landingPageButton"><a href="/views/pages/searches/inventory.ejs">See Your Refrigerator</a></button>
+				<button class="landingPageButton" action="/seeRefrig" method="get">See Your Refrigerator</button>
 				<button class="landingPageButton" action="search" method="post">Search For Recipe</button>
+				<form action="/get-id" method="get">
+					<input type="text" name="search" placeholder="Enter Ingredient" required="required" />
+					<button type="submit">Search Ingredient Id</button>
+				</form>
+
+
+
 			</div>
 
-			<form action="/get-id" method="get">
-				<input type="text" name="search" placeholder="Enter Ingredient" required="required" />
-				<button type="submit">Search Ingredient Id</button>
-			</form>
 
 
 
@@ -41,7 +50,7 @@
 			</div>
     </div>
 
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
