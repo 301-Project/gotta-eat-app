@@ -1,9 +1,10 @@
  DROP TABLE IF EXISTS recipes;
 
-CREATE TABLE IF NOT EXISTS recipes ( 
+CREATE TABLE  recipes ( 
   id SERIAL PRIMARY KEY, 
-  recipe_title VARCHAR(255),
-  recipe_image VARCHAR(255),  
-  recipe_id VARCHAR (255) 
+  result_title VARCHAR(255),
+  result_image VARCHAR(255),  
+  result_url VARCHAR (255), 
+  diets VARCHAR (255) 
 );
 
