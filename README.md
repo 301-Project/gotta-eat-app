@@ -1,5 +1,8 @@
 # Project 301 Overview - Gotta Eat!
-This is a full-stack application that lets a user search the Spoonacular API for recipes based on the ingredients they input They then make a selection from a list of recipes that use those ingredients and may save specific recipes to a PostgreSQL database for later use. 
+This is a full-stack application that lets a user search the Spoonacular API for recipes based on the ingredients they input They then make a selection from a list of recipes that use those ingredients and may save specific recipes to a PostgreSQL database for later use.
+
+## Problem Domain
+food service, cooking, entertaining, catering, event planning, weddings, education
 
 ## Deployment
 Users will need to go to https://gotta-eat-app.herokuapp.com/ and start searching for recipes on the home page.
