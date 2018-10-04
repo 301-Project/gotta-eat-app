@@ -26,7 +26,9 @@ app.set('view engine', 'ejs');
 //API routes - rendering the search form
 app.get('/', (request, response) => response.render('index'));
 app.get('/get-id', getRecipeId);
-app.post('/picked-recipe/:id', getOneRecipe); //event handler 
+app.post('/picked-recipe/:id', getOneRecipe);
+
+
 // Catch-all error handler
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
@@ -67,11 +69,41 @@ function getRecipeId(request, response) {
     .catch(error => handleError(error, response));
 }
 
+function Resultrecipe(response) {
+  this.result_title = response.title || 'the girl has no name';
+  this.result_image = response.image || 'no image available';
+  this.result_url = response.spoonacularSourceUrl || 'no source';
+  this.diets = response.diets || 'No dietary restriction available';
+}
 
 function getOneRecipe(request, response) {
-  console.log('HELLO>>>>>>');
-  console.log( 'request.body is ',request.body);
-  let pickedRecipe = request.params.id;
-  console.log( 'this got picked', pickedRecipe);
+  let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${request.params.id}/information?includeNutrition=false`
+  // let pickedRecipe = request.params.id;
+
+  // let SQL = 'INSERT INTO recipes(recipe_id) VALUES ($1) RETURNING id;';
+  // let values = [pickedRecipe];
+  // return client.query(SQL, values)
+  //   .then(results => response.redirect(`/recipes/${results.rows[0].id}`))
+  //   .catch(err => handleError(err, response));
+
+  let recipeChoiceArray = [];
+  console.log('just a string first');
+  return superagent.get(url)
+    .set('X-Mashape-Key', process.env.FOOD_API_KEY)
+    .set('X-Mashape-Host', 'spoonacular-recipe-food-nutrition-v1.p.mashape.com')
+    .then(apiResponse => {
+
+      return new Resultrecipe(apiResponse.body);
+    })
+
+    .then(searchResult => response.render('pages/searches/result', {
+      recipeResultObject: searchResult
+    }))
+    .catch(error => handleError(error, response));
+
 }
+
+
+
+
 

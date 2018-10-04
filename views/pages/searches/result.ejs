@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Result</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="/styles/reset.css" />
+<link rel="stylesheet" type="text/css" href="/styles/base.css" />
+<link rel="stylesheet" type="text/css" href="/styles/layout.css" />
+<link rel="stylesheet" type="text/css" href="/styles/modules.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <header>
+<h1>Result</h1>
+</header>
+
+<main>
+  <nav class="sidenav">
+    <ul><a href="/views/index.ejs">Home</a></ul>
+    <ul><a href="/views/pages/searches/inventory.ejs">Your Refrigerator</a></ul>
+    <ul><a href="/views/pages/searches/shop.ejs">Shop For More Food</a></ul>
+    <ul><a href="/views/aboutus.ejs">About Us</a></ul>
+  </nav>
+  
+
+  <ul>
+    
+      <li><%=recipeResultObject.result_title %></li>
+      <img src="<%=recipeResultObject.result_image %>"/> 
+      <li><%=recipeResultObject.result_url %></li>
+      <li><%=recipeResultObject.diets %></li>
+  </ul>
+
+  
+  
+
+</main>
+</body>
+<footer>
+  <p>CopyRight2018</p>
+</footer>
+</html>
