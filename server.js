@@ -16,15 +16,19 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //Application Middleware
-app.use(express.static('./public'));
 app.use(express.urlencoded({ extended: true }));
 
 //Set the view engine for server side templating
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 //API routes - rendering the search form
 app.get('/', (request, response) => response.render('index'));
 app.get('/get-id', getRecipeId);
+app.get('/aboutus', showaboutUs);
+
+app.get('/seeRefrig', result => response.render('/views/pages/searches/inventory', {arrayOfRecipes: result}));   /////// SET UP THE NEW PAGE
+
 app.post('/picked-recipe/:id', getOneRecipe);
 app.post('/recipes', addRecipe);
 
@@ -100,3 +104,6 @@ function addRecipe(request, response) {
     .catch(error => handleError(error, response))
 }
 
+function showaboutUs(request, response) {
+  response.render('aboutus');
+}

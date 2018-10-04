@@ -2,50 +2,61 @@
 <html>
 <head>
   <title>About Us</title>
-  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+	<link href="/styles/reset.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/base.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/layout.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/module.css" rel="stylesheet" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <header>
-    <h1>About Us</h1>
-  </header>
+  <div class="about-container">
+    <div class="a">
+    <span class="navbar-toggle" id="js-navbar-toggle">
+        <i class="fa fa-bars"></i>
+    </span>
 
-  <main>
-    <nav class="sidenav">
-      <ul><a href="/views/index.ejs">Home</a></ul>
-      <ul><a href="/views/pages/searches/inventory.ejs">Your Refrigerator</a></ul>
-      <ul><a href="/views/pages/searches/shop.ejs">Shop For More Food</a></ul>
-      <ul><a href="/views/pages/searches/Recipe.ejs">Recipe</a></ul>
-    </nav>
+    <div class="navigation-bar">
+      <ul class="main-navigation" id="js-navigation">
+          <li><a href="/views/index.ejs">Home</a></li>
+        <li><a href="/views/pages/searches/inventory.ejs">My Recipes</a></li>
+      </div> 
+    </div>
+
+    <div class="b">
+      <h1>About Us</h1>
+    </div>
 
 
-    <div>
+    <div class="c">
         <h2> Dave Muench </h2>
         <p> (pitch) </p>
         <img src="" alt="">
     </div>
 
-    <div>
+    <div  class="d">
         <h2> Derrick Hwang </h2>
         <p> (pitch) </p>
         <img src="" alt="">
     </div>
 
-    <div>
+    <div  class="e">
         <h2> Joyce Liao </h2>
         <p> (pitch) </p>
             <img src="" alt="">
     </div>
 
-    <div>
+    <div  class="f">
         <h2> Zahra Mohamed </h2>
         <p> (pitch) </p>
         <img src="" alt="">
     </div>
 
-
-  </main>
+    <div  class="g">
+      <p>CopyRight2018</p>
+    </div>
+    
+  </div> <!-- class: container-->
 </body>
-<footer>
-    <p>CopyRight2018</p>
-</footer>
+
 </html>

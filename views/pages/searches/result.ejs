@@ -39,6 +39,17 @@
       <button type="submit" >Save Recipe</button>
     </form>
 
+    <ul>
+      <% recipeArray.forEach((item, index) => { %>
+        <form action="/picked-recipe/<%= item.recipe_id %>"" method = "post">
+        <li><%=item.recipe_title %></li>
+        <img src="<%=item.recipe_image %>"/> 
+        
+        <button type="submit" value= "<%=recipeArray[index].recipe_id %>">Select This Recipe</button>
+      </form>
+        <% }) %>   
+    </ul>
+    
  
   
 
