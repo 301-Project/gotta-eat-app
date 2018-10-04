@@ -12,7 +12,7 @@
 
 **DEV STORIES**
 
-o As the developer, we want to:
+As the developer, we want to:
 
 	o  Create a web application that helps users prepare meals
 	o  Display at least three options for recipes returned for a user's search
