@@ -24,14 +24,16 @@
   
 
   <ul>
-    
+    <form action="/save" method="post">
       <li><%=recipeResultObject.result_title %></li>
       <img src="<%=recipeResultObject.result_image %>"/> 
       <li><%=recipeResultObject.result_url %></li>
       <li><%=recipeResultObject.diets %></li>
+        <button type="submit" >Save Recipe</button>
+      </form>
   </ul>
 
-  
+ 
   
 
 </main>
