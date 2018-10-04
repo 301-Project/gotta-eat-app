@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 //API routes - rendering the search form
-app.get('/', (request, response) => response.render('index'));
+app.get('/', pageLoad);
 app.get('/get-id', getRecipeId);
 app.get('/aboutus', showaboutUs);
 
@@ -31,6 +31,8 @@ app.get('/seeRefrig', result => response.render('/views/pages/searches/inventory
 
 app.post('/picked-recipe/:id', getOneRecipe);
 app.post('/recipes', addRecipe);
+
+app.get('/return-home', saveRecipe);
 
 // Catch-all error handler
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
@@ -102,6 +104,32 @@ function addRecipe(request, response) {
   let values = [result_title, result_image, result_url, diets];
   client.query(SQL, values)
     .catch(error => handleError(error, response))
+}
+function saveRecipe(request, response) {
+  console.log('test message');
+  let SQL = `SELECT * from recipes;`;
+  let collectionArray = [];
+  client.query(SQL)
+          .then(result => {
+            if(result.rowCount){
+              result.rows.forEach(obj => collectionArray.push(obj))
+            }
+            return collectionArray;})
+            
+            .then(() => {
+              console.log('test', collectionArray);
+              response.redirect('/', {recipes: collectionArray})})
+          .catch(error => handleError(error, response));
+  
+}
+
+function pageLoad (request, response) {
+  let SQL = `SELECT * FROM recipes;`;
+  client.query(SQL)
+  .then(results => {
+    response.render('index', {recipes: results.rows})
+  })
+  
 }
 
 function showaboutUs(request, response) {

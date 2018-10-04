@@ -35,10 +35,18 @@
 			<input class = "input-home"type="text" name="search" placeholder="Enter Ingredient" required="required" />
 			<button  class ="button-home" type="submit">Search For Recipe</button>
 		</form>
-
-
 	</div>
 
+
+	<section class="recipe-collection">
+		<ul id="recipe-list">
+		  <% recipes.forEach(recipe => { %>
+			<li class="recipe-item" data-id="<%= recipe.id %>">
+			  <h4>Title: <%= recipe.title %></h4>
+			</li>
+		  <% }) %>
+		</ul>
+	</section>
 
 	<div class="footer">
 			<p>CopyRight2018</p>
