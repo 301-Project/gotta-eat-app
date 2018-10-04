@@ -27,6 +27,7 @@ app.use(express.static('public'));
 //API routes - rendering the search form
 app.get('/', (request, response) => response.render('index'));
 app.get('/get-id', getRecipeId);
+app.get('/aboutus', showaboutUs);
 
 app.get('/seeRefrig', result => response.render('/views/pages/searches/inventory', {arrayOfRecipes: result}));   /////// SET UP THE NEW PAGE
 
@@ -105,3 +106,6 @@ function addRecipe(request, response) {
     .catch(error => handleError(error, response))
 }
 
+function showaboutUs(request, response) {
+  response.render('aboutus');
+}

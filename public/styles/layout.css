@@ -30,12 +30,81 @@ h1 {
     font-size: 45px;
     font-family: RTitillium Web;
 	font: italic bolder;
+	margin-bottom: 1%; 
+	margin-top: 20%;
 
 }
 
-.about-banner {
+/* .about-banner {
 	grid-column: 1 / span 4;
+} */
+
+
+/* 
+This styling is for about- us page */
+
+.a { grid-area: a; }
+.b { grid-area: b; }
+.c { grid-area: c; }
+.d { grid-area: d; }
+.e { grid-area: e; }
+.f { grid-area: f; }
+.g { grid-area: g; }
+
+
+.about-container {
+  /* width: 100%; */
+	display: grid;
+	grid-row-gap: 10px;
+  justify-content: start;
+	/* grid-template-rows: auto; */
+	
+  grid-template-areas:
+    "a a a a"
+    "b b b b"
+    "c c d d"
+    "e e f f"
+    "g g g g";
 }
+
+.a{
+	background-color: blue;
+	width: 480px;
+	height:75px;
+	line-height: 75px; 
+ 
+ }
+ 
+ .b{
+	 
+	}
+ 
+	.c{
+	
+	}
+ 
+	.d{
+	 
+	}
+ 
+	.e{
+	 
+	
+	}
+ 
+	.f{
+	 
+	
+	}
+ 
+	.g{
+	 
+	 
+	}
+
+
+
+
 
 /* HOME PAGE MOBILE VIEW */
 @media (max-width: 700px){
