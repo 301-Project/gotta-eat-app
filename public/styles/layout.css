@@ -33,10 +33,6 @@ h1 {
 
 }
 
-.main-button{
-	grid-column: span 1;
-}
-
 .about-banner {
 	grid-column: 1 / span 4;
 }
