@@ -3,45 +3,59 @@
 <head>
   <title>Recipe</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-<link rel="stylesheet" type="text/css" href="/styles/reset.css" />
-<link rel="stylesheet" type="text/css" href="/styles/base.css" />
-<link rel="stylesheet" type="text/css" href="/styles/layout.css" />
-<link rel="stylesheet" type="text/css" href="/styles/modules.css" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/base.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/modules.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/recipe.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Anton|Exo+2" rel="stylesheet">
+  
 </head>
 <body>
-  <header>
-    <h1>Recipe</h1>
-  </header>
+  <div class="recipe-container">
 
-  <main>
-    <nav class="sidenav">
-      <ul><a href="/views/index.ejs">Home</a></ul>
-      <ul><a href="/views/pages/searches/inventory.ejs">Your Refrigerator</a></ul>
-      <ul><a href="/views/pages/searches/shop.ejs">Shop For More Food</a></ul>
-      <ul><a href="/views/aboutus.ejs">About Us</a></ul>
-    </nav>
+    <div class="recipe-nav">
+      <span class="navbar-toggle" id="js-navbar-toggle">
+          <i class="fa fa-bars"></i>
+      </span>
+
+      <div class="navigation-bar">
+        <ul class="main-navigation" id="js-navigation">
+          <li><a href="/views/index.ejs">Home</a></li>
+          <li><a href="/views/aboutus.ejs">About Us</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="recipe-header">
+      <h1>Recipe</h1>
+    </div>
+
     
-
-    <ul>
+    <div class="recipe-show">
       
       <% recipeArray.forEach((item, index) => { %>
         <form action="/picked-recipe/<%= item.recipe_id %>"" method = "post">
-        <li><%=item.recipe_title %></li>
-        <img src="<%=item.recipe_image %>"/> 
+          <h3><%=item.recipe_title %></h3>
+          <img src="<%=item.recipe_image %>" class="about-img"/> 
         
-        <button type="submit" value= "<%=recipeArray[index].recipe_id %>">Select This Recipe</button>
-      
-      </form>
-        <% }) %>   
-    </ul>
-    
-    
-    
+          <button type="submit" value= "<%=recipeArray[index].recipe_id %>" class="recipe-button">Select This Recipe</button>
+        </form>
+      <% }) %>   
+        
 
-  </main>
+    </div>
+    
+    <div class="recipe-footer">
+        <p>CopyRight2018</p>
+    </div>
+
+
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="/app.js"></script>
 </body>
-<footer>
-    <p>CopyRight2018</p>
-</footer>
 </html>
