@@ -49,7 +49,7 @@ Get Recipe (Second API query that uses recipe id selected by user): https://gith
 ## Authors
 Joyce Liao, Zahra Mohamed, Derrick Hwang and Dave Muench
 
-## LICENSE
+## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
