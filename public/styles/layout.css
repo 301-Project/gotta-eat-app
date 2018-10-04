@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web:300i,400,600");
 
+/* Index ejs styling */
+
 .container{
 	display: grid;
 	grid-template-columns: 10vw 80vw 10vw;
@@ -56,7 +58,7 @@ This styling is for about- us page */
   /* width: 100%; */
 	display: grid;
 	grid-row-gap: 10px;
-  justify-content: start;
+  /* justify-content: start; */
 	/* grid-template-rows: auto; */
 	
   grid-template-areas:
@@ -68,7 +70,7 @@ This styling is for about- us page */
 }
 
 .a{
-	background-color: blue;
+	/* background-color: blue; */
 	width: 480px;
 	height:75px;
 	line-height: 75px; 
