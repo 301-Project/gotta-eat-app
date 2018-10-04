@@ -4,13 +4,12 @@
 const express = require('express');
 const superagent = require('superagent');
 const pg = require('pg');
-
-const client = new pg.Client('postgres://localhost:5432/food_app');
+// Load environment variables from .env file
+require('dotenv').config();
+const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
 client.on('error', err => console.log(err));
 
-// Load environment variables from .env file
-require('dotenv').config();
 
 // Application Setup
 const app = express();
