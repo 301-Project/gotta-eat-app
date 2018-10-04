@@ -1,8 +1,8 @@
-@import url("font-awesome.min.css");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
-@import url("https://fonts.googleapis.com/css?family=Titillium+Web:300i,400,600");
+/* @import url("font-awesome.min.css"); */
+/* @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600"); */
+/* @import url("https://fonts.googleapis.com/css?family=Titillium+Web:300i,400,600"); */
 
-.container{
+/* .container{
 	display: grid;
 	grid-template-columns: 10vw 80vw 10vw;
 	grid-template-rows: 10vw 80vw 10vw;
@@ -42,27 +42,78 @@ h1 {
 }
 
 /* HOME PAGE MOBILE VIEW */
-@media (max-width: 700px){
+/* @media (max-width: 700px){
 	.main-banner, .main-button{
 		grid-column: 1 / span 4;
 	}
-}
+} */
 
 /* INVENTORY MOBILE VIEW */
-@media (max-width: 700px){
+/* @media (max-width: 700px){
 	.inventory-banner, .inventory-button{
 		grid-column: 1 / span 4;
 	}
 }
 
 /* ABOUT MOBILE VIEW */
-@media (max-width: 700px){
+/* @media (max-width: 700px){
 	.about-text {
 		width: 500px;
 		background-color: pink;
-	  }
+	  } */
 
+
+
+
+/* Using grid Area */
+
+
+.a { grid-area: a; }
+.b { grid-area: b; }
+.c { grid-area: c; }
+.d { grid-area: d; }
+
+.grid-container {
+ 
+  display: grid;
+  justify-content: start;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "a a a a"
+    "b b b b"
+    "c c c c"
+    "d d d d";
 }
+
+
+.a{
+	background-color: red;
+	width: 480px;
+	height:75px;
+	line-height: 75px; 
+ 
+ }
+ 
+ .b{
+	 background-color: aqua;
+	 width: 480px;
+	 height: 150px;  
+	 line-height: 150px; 
+	}
+ 
+	.c{
+	 background-color: green;
+	 width: 480px;
+	 height: 125px; 
+	 line-height: 125px; 
+	}
+ 
+	.d{
+	 background-color: pink;
+	 width: 480px;
+	 height: 125px; 
+	 line-height: 125px; 
+	}
 
 
 
