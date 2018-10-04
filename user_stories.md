@@ -1,4 +1,4 @@
-***USER STORIES***
+**USER STORIES**
 	
 	o As a user who enjoys cooking, I want to find recipes that make use of the ingredients I have on hand.
 
@@ -10,9 +10,10 @@
 
 	o As a user who will use this app repeatedly, I want to save my chosen recipes for use later.
 
-***DEV STORIES***
+**DEV STORIES**
 
-As the developer, we want to:
+o As the developer, we want to:
+
 	o  Create a web application that helps users prepare meals
 	o  Display at least three options for recipes returned for a user's search
 	o  Display the users chosen recipe with a link to a step-by-step instuction
