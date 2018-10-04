@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //Set the view engine for server side templating
 app.set('view engine', 'ejs');
-app.use(express.static('./public'));
+app.use(express.static('public'));
 
 //API routes - rendering the search form
 app.get('/', (request, response) => response.render('index'));

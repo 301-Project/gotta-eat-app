@@ -8,6 +8,7 @@
 	<link href="/styles/layout.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/module.css" rel="stylesheet" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body>
@@ -18,39 +19,33 @@
 				</span>
 			<div class="navigation-bar">
 				<ul class="main-navigation" id="js-navigation">
-					<li><a href="/views/index.ejs">Home</a></li>
-					<li><a href="/views/pages/searches/inventory.ejs">Your Refrigerator</a></li>
+					<li><a href="/views/pages/searches/inventory.ejs">My Recipes</a></li>
 					<li><a href="/views/aboutus.ejs">About Us</a></li>
 					<li></li>
 				</ul>
 			</div>
-			<div class="main-banner">
-					<h1>Gotta Eat! Home</h1>
-			</div>
 
-			<div class="main-button">
-				<button class="landingPageButton" action="/seeRefrig" method="get">See Your Refrigerator</button>
-				<button class="landingPageButton" action="search" method="post">Search For Recipe</button>
-				<form action="/get-id" method="get">
-					<input type="text" name="search" placeholder="Enter Ingredient" required="required" />
-					<button type="submit">Search Ingredient Id</button>
-				</form>
+	<!-- <div class="main-banner">
 
+	</div> -->
 
-
-			</div>
+	<div class="main-button">
+		<h1>Gotta Eat!</h1>
+		<form action="/get-id" method="get">
+			<input type="text" name="search" placeholder="Enter Ingredient" required="required" />
+			<button type="submit">Search For Recipe</button>
+		</form>
 
 
+	</div>
 
 
-
-
-			<div class="footer">
-				<p>CopyRight2018</p>
-			</div>
+	<div class="footer">
+			<p>CopyRight2018</p>
+		</div>
     </div>
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="/app.js"></script>
 </body>
 </html>
