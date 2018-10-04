@@ -1,4 +1,5 @@
 ***USER STORIES***
+	
 	o As a user who enjoys cooking, I want to find recipes that make use of the ingredients I have on hand.
 
 	o As a person who eats, I want a choice of several recipes avilable to me when I searchthat haveh an accompanying picture so I know what the dish looks like.
