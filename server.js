@@ -27,7 +27,7 @@ app.set('view engine', 'ejs');
 app.get('/', (request, response) => response.render('index'));
 app.get('/get-id', getRecipeId);
 app.post('/picked-recipe/:id', getOneRecipe);
-
+app.post('/save', addRecipe);
 
 // Catch-all error handler
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
@@ -86,23 +86,25 @@ function getOneRecipe(request, response) {
   //   .then(results => response.redirect(`/recipes/${results.rows[0].id}`))
   //   .catch(err => handleError(err, response));
 
-  let recipeChoiceArray = [];
   console.log('just a string first');
   return superagent.get(url)
     .set('X-Mashape-Key', process.env.FOOD_API_KEY)
     .set('X-Mashape-Host', 'spoonacular-recipe-food-nutrition-v1.p.mashape.com')
     .then(apiResponse => {
-
       return new Resultrecipe(apiResponse.body);
     })
-
     .then(searchResult => response.render('pages/searches/result', {
       recipeResultObject: searchResult
     }))
     .catch(error => handleError(error, response));
-
 }
 
+function addRecipe(recipeObject) {
+  let SQL = 'INSERT INTO recipes(title, image, url, diets) VALUES ($1, $2, $3, $4);';
+  let values = [recipeObject.title, recipeObject.image, recipeObject.spoonacularSourceUrl, recipeObject.diets];
+  client.query(SQL, values)
+    .catch(error => handleError(error, recipeObject))
+}
 
 
 
