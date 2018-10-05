@@ -1,31 +1,43 @@
+@import url("font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:300i,400,600");
+
+
+* {
+    outline: yellow dashed 1px;
+}
+
+body {
+    background-color: ivory;
+    margin: 0 auto;
+    text-align: center;
+}
+
 h1 {
-    font-size: 45px;
-    font-family: RTitillium Web;
-    font: italic bolder;
+    font-size: 72px;
+    font-family: 'Mali';
+    font-style: italic bolder;
+    margin-bottom: 10px;
 }
 
 h2 {
     font-size: 30px;
-    font-family: Roboto Condensed;
+    font-family: 'Roboto Condensed';
+    margin-bottom: 10px;
 }
 
 p {
-    font-family: PT Sans Narrow;
+    font-family: 'PT Sans Narrow';
+    font-size: 16pt;
+    line-height: 1.2em;
 }
 
 a {
     text-decoration: none;
 }
-
-body {
-	margin: 0 auto;
-text-align: center;
+img {
+    max-width: 300px;
 }
-
-body {
-    background-color: brown;
-}
-
 
 
 
