@@ -189,12 +189,6 @@ input[type=range] {
     text-shadow: 2px 10px black;
 } */
 
-.footer{
-        background-color: #333;
-        top: 10px;
-}
-
-
 
 #popup {
   background: rgba(100, 100, 100, 0.6);
