@@ -35,10 +35,13 @@
 
     <div class="result-show">
         <ul>
-            <h3><%=recipeResultObject.result_title %>"</h3> 
+            <h3><%=recipeResultObject.result_title %>"</h3>
             <img src="<%=recipeResultObject.result_image %>" class="result-img"/> 
-            <li><a href="<%=recipeResultObject.result_url %>"><%=recipeResultObject.result_url %></a></li>
             <p>Dietary Restriction: <%=recipeResultObject.diets %></p>
+            <br>
+            <p>Click on the link below to see the full recipe: </p>
+            <li><p><a href="<%=recipeResultObject.result_url %>"><%=recipeResultObject.result_url %></a></p></li>
+            <br>
         </ul>
 
         <form action="/recipes" method="post">
