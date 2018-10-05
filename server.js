@@ -34,6 +34,8 @@ app.post('/picked-recipe/:id', getOneRecipe);
 app.post('/recipes', addRecipe);
 
 app.get('/return-home', saveRecipe);
+app.get('/home', pageLoad);
+
 
 // Catch-all error handler
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));

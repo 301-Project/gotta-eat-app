@@ -55,7 +55,7 @@
 }
 .main-navigation{
     list-style-type: none;
-    display: none;
+    display: none; 
 }
 .main-bookmark li{
 font-size: 24px;

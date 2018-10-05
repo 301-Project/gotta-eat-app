@@ -15,57 +15,56 @@
 
 <body>
 
-	<div class="container">
-		<span class="navbar-toggle" id="js-navbar-toggle">
-			<i class="fa fa-bars"></i>
-		</span>
+<div class="container">
+	<span class="navbar-toggle" id="js-navbar-toggle">
+		<i class="fa fa-bars"></i>
+	</span>
+	<div class="navigation-bar">
+		<ul class="main-navigation" id="js-navigation">
+			<li><a href="/aboutus">About Us</a></li>
+		</ul>
+	</div>
 
-		<div class="navigation-bar">
-			<ul class="main-navigation" id="js-navigation">
-				<li><a href="/aboutus">About Us</a></li>
-			</ul>
+
+
+	<div class="main-button">
+
+		<div class="bookmark">
+			<p class="bookmark-toggle" id="js-bookmark-toggle">
+				Saved Recipes
+				<i class="fa fa-book"></i>
+			</p>
 		</div>
 
+		<ul class="main-bookmark" id="js-bookmark">
+			<% recipes.forEach(recipe => { %>
+			<li class="recipe-item" data-id="<%= recipe.id %>">
+			<li><a href="<%= recipe.result_url %>">Title:
+					<%= recipe.result_title %></a></li>
+			</li>
+			<% }) %>
+		</ul>
 
-
-		<div class="main-button">
-
-			<div class="bookmark">
-				<p class="bookmark-toggle" id="js-bookmark-toggle">
-					Saved Recipes
-					<i class="fa fa-book"></i>
-				</p>
-			</div>
-
-			<ul class="main-bookmark" id="js-bookmark">
-				<% recipes.forEach(recipe => { %>
-				<li class="recipe-item" data-id="<%= recipe.id %>">
-				<li><a href="<%= recipe.result_url %>">Title:
-						<%= recipe.result_title %></a></li>
-				</li>
-				<% }) %>
-			</ul>
-
-			<div class="main-bar">
+		<div class="main-bar">
 			<h1>Gotta Eat!</h1>
 			<form action="/get-id" method="get">
 				<input class="input-home" type="text" name="search" placeholder="Enter Ingredient" required="required" />
 				<button class="button-home" type="submit">Search For Recipe</button>
 			</form>
 		</div>
-		</div>
-		</div>
-
-
-
-
-
-		<div class="footer">
-			<p>CopyRight2018</p>
-		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script type="text/javascript" src="/app.js"></script>
+</div>
+
+
+
+
+
+<div class="footer">
+	<p>CopyRight2018</p>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="/app.js"></script>
 </body>
 
 </html>
