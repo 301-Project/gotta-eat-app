@@ -3,10 +3,6 @@
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web:300i,400,600");
 
 
-* {
-    outline: yellow dashed 1px;
-}
-
 body {
     background-color: ivory;
     margin: 0 auto;
