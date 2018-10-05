@@ -28,7 +28,7 @@ app.get('/get-id', getRecipeId);
 app.get('/aboutus', showaboutUs);
 app.get('/index', showMyrecipes)
 
-app.get('/seeRefrig', result => response.render('/views/pages/searches/inventory', {arrayOfRecipes: result}));   /////// SET UP THE NEW PAGE
+app.get('/seeRefrig', result => response.render('/views/pages/searches/inventory', { arrayOfRecipes: result }));   /////// SET UP THE NEW PAGE
 
 app.post('/picked-recipe/:id', getOneRecipe);
 app.post('/recipes', addRecipe);
@@ -86,7 +86,7 @@ function Resultrecipe(response) {
 
 function getOneRecipe(request, response) {
   let url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${request.params.id}/information?includeNutrition=false`
-  
+
   return superagent.get(url)
     .set('X-Mashape-Key', process.env.FOOD_API_KEY)
     .set('X-Mashape-Host', 'spoonacular-recipe-food-nutrition-v1.p.mashape.com')
@@ -100,7 +100,7 @@ function getOneRecipe(request, response) {
 }
 
 function addRecipe(request, response) {
-  let { result_title, result_image, result_url, diets} = request.body;
+  let { result_title, result_image, result_url, diets } = request.body;
 
   let SQL = 'INSERT INTO recipes(result_title, result_image, result_url, diets) VALUES ($1, $2, $3, $4);';
 
@@ -113,26 +113,28 @@ function saveRecipe(request, response) {
   let SQL = `SELECT * from recipes;`;
   let collectionArray = [];
   client.query(SQL)
-          .then(result => {
-            if(result.rowCount){
-              result.rows.forEach(obj => collectionArray.push(obj))
-            }
-            return collectionArray;})
-            
-            .then(() => {
-              console.log('test', collectionArray);
-              response.render('index', {recipes: collectionArray})})
-          .catch(error => handleError(error, response));
-  
+    .then(result => {
+      if (result.rowCount) {
+        result.rows.forEach(obj => collectionArray.push(obj))
+      }
+      return collectionArray;
+    })
+
+    .then(() => {
+      console.log('test', collectionArray);
+      response.render('index', { recipes: collectionArray })
+    })
+    .catch(error => handleError(error, response));
+
 }
 
-function pageLoad (request, response) {
+function pageLoad(request, response) {
   let SQL = `SELECT * FROM recipes;`;
   client.query(SQL)
-  .then(results => {
-    response.render('index', {recipes: results.rows})
-  })
-  
+    .then(results => {
+      response.render('index', { recipes: results.rows })
+    })
+
 }
 
 function showaboutUs(request, response) {
