@@ -12,7 +12,7 @@
 	grid-column: 1 / span 4;
 }
 
-.inventory-banner{
+.inventory-banner, .about-banner{
 	grid-column: 1 / span 3;
 }
 
@@ -103,7 +103,7 @@ background: #333;}
 
 /* INVENTORY MOBILE VIEW */
 @media (max-width: 700px){
-	.inventory-banner, .inventory-button{
+	.about-banner, .inventory-button{
 		grid-column: 1 / span 4;
 	}
 }
