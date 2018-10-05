@@ -16,11 +16,11 @@
 <body>
  
   <div class="recipe-container">
-      <!-- <span class="navbar-toggle" id="js-navbar-toggle">
+      <!-- <span class="navbar-toggle" id="js-recipe-toggle">
           <i class="fa fa-bars"></i>
       </span> -->
       <div class="navigation-bar">
-        <ul class="main-navigation" id="js-navigation">
+        <ul class="main-navigation" id="js-recipe">
 
             <li><a href="/home">Home</a></li>
             <li><a href="/aboutus">About Us</a></li>
@@ -30,12 +30,12 @@
 
     
 
-    <div class="recipe-header">
-      <h1>Recipe</h1>
-    </div>
 
     
     <div class="recipe-show">
+        <div class="recipe-header">
+            <h1>Recipe</h1>
+          </div>
       
       <% recipeArray.forEach((item, index) => { %>
         <form action="/picked-recipe/<%= item.recipe_id %>"" method = "post">
