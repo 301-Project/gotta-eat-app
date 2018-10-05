@@ -21,10 +21,12 @@
       </span>
     
       <div class="navigation-bar">
-        <ul class="main-navigation" id="js-navigation">
-          <li><a href="/index">Home</a></li>
-          <li><a href="/aboutus">About Us</a></li>
-        </ul>
+
+          <ul class="main-navigation" id="js-navigation">
+              <li><a href="/home">Home</a></li>
+              <li><a href="/aboutus">About Us</a></li>
+          </ul>
+
       </div>
     
     </div>
@@ -44,6 +46,10 @@
             <br>
         </ul>
 
+    
+    <form action="/return-home" method="get">
+      <button type="submit" href="/views/index.ejs">Return Home</button>
+    </form>
         <form action="/recipes" method="post">
             <input type="hidden" name="result_title" value="<%=recipeResultObject.result_title %>">
             <input type="hidden" name="result_image" value="<%=recipeResultObject.result_image %>">
