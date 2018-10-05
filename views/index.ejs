@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
@@ -13,44 +14,58 @@
 </head>
 
 <body>
-  
-    <div class="container">
-				<span class="navbar-toggle" id="js-navbar-toggle">
-						<i class="fa fa-bars"></i>
-				</span>
-			<div class="navigation-bar">
-				<ul class="main-navigation" id="js-navigation">
-					
-					<li><a href="/aboutus">About Us</a></li>
-					<li></li>
-				</ul>
+
+	<div class="container">
+		<span class="navbar-toggle" id="js-navbar-toggle">
+			<i class="fa fa-bars"></i>
+		</span>
+
+		<div class="navigation-bar">
+			<ul class="main-navigation" id="js-navigation">
+				<li><a href="/aboutus">About Us</a></li>
+			</ul>
+		</div>
+
+
+
+		<div class="main-button">
+
+			<div class="bookmark">
+				<p class="bookmark-toggle" id="js-bookmark-toggle">
+					Saved Recipes
+					<i class="fa fa-book"></i>
+				</p>
 			</div>
 
-	<div class="main-button">
-		<h1>Gotta Eat!</h1>
-		<form action="/get-id" method="get">
-			<input class = "input-home"type="text" name="search" placeholder="Enter Ingredient" required="required" />
-			<button  class ="button-home" type="submit">Search For Recipe</button>
-		</form>
-	</div>
+			<ul class="main-bookmark" id="js-bookmark">
+				<% recipes.forEach(recipe => { %>
+				<li class="recipe-item" data-id="<%= recipe.id %>">
+				<li><a href="<%= recipe.result_url %>">Title:
+						<%= recipe.result_title %></a></li>
+				</li>
+				<% }) %>
+			</ul>
+
+			<div class="main-bar">
+			<h1>Gotta Eat!</h1>
+			<form action="/get-id" method="get">
+				<input class="input-home" type="text" name="search" placeholder="Enter Ingredient" required="required" />
+				<button class="button-home" type="submit">Search For Recipe</button>
+			</form>
+		</div>
+		</div>
+		</div>
 
 
-	<section class="recipe-collection">
-		<ul id="recipe-list">
-		  <% recipes.forEach(recipe => { %>
-			<li class="recipe-item" data-id="<%= recipe.id %>">
-			  <h4>Title: <%= recipe.title %></h4>
-			</li>
-		  <% }) %>
-		</ul>
-	</section>
 
-	<div class="footer">
+
+
+		<div class="footer">
 			<p>CopyRight2018</p>
 		</div>
-    </div>
-
+	</div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="/app.js"></script>
+	<script type="text/javascript" src="/app.js"></script>
 </body>
+
 </html>

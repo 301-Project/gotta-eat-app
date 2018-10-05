@@ -119,7 +119,7 @@ function saveRecipe(request, response) {
             
             .then(() => {
               console.log('test', collectionArray);
-              response.redirect('/', {recipes: collectionArray})})
+              response.render('index', {recipes: collectionArray})})
           .catch(error => handleError(error, response));
   
 }
