@@ -1,6 +1,5 @@
-@import url("font-awesome.min.css");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
-@import url("https://fonts.googleapis.com/css?family=Titillium+Web:300i,400,600");
+
+/* INDEX EJS STYLING */
 
 .container{
 	display: grid;
@@ -20,28 +19,22 @@
 .main-button{
 	grid-column: 2/3;
 	grid-row: 2/3;
+	margin-top: 35%;
+}
+
+input.input-home {
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+
+button.button-home {
+	font-size: 16px;
 }
 
 .footer {
-	grid-column: 1/4;
-}
+background: #333;}
 
-h1 {
-    font-size: 45px;
-    font-family: RTitillium Web;
-	font: italic bolder;
-	margin-bottom: 1%; 
-	margin-top: 20%;
-
-}
-
-/* .about-banner {
-	grid-column: 1 / span 4;
-} */
-
-
-/* 
-This styling is for about- us page */
+/* ABOUT US PAGE STYLING */
 
 .a { grid-area: a; }
 .b { grid-area: b; }
@@ -56,7 +49,7 @@ This styling is for about- us page */
   /* width: 100%; */
 	display: grid;
 	grid-row-gap: 10px;
-  justify-content: start;
+  /* justify-content: start; */
 	/* grid-template-rows: auto; */
 	
   grid-template-areas:
@@ -67,49 +60,36 @@ This styling is for about- us page */
     "g g g g";
 }
 
-.a{
-	background-color: blue;
-	width: 480px;
-	height:75px;
-	line-height: 75px; 
- 
- }
- 
- .b{
-	 
-	}
- 
-	.c{
-	
-	}
- 
-	.d{
-	 
-	}
- 
-	.e{
-	 
-	
-	}
- 
-	.f{
-	 
-	
-	}
- 
-	.g{
-	 
-	 
-	}
+.a {
+	background-color: #333;
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+   }
 
-
-
+.b {
+	width: 100%;
+	height: 80px;
+}
 
 
 /* HOME PAGE MOBILE VIEW */
-@media (max-width: 700px){
+@media (max-width: 480px) {
 	.main-banner, .main-button{
 		grid-column: 1 / span 4;
+	}
+	.about-container {
+		  /* display: grid;
+		  grid-row-gap: 10px; */
+		  
+		grid-template-areas:
+		  "a a a a"
+		  "b b b b"
+		  "c c c c"
+		  "d d d d"
+		  "e e e e"
+		  "f f f f"
+		  "g g g g";
 	}
 }
 
