@@ -3,48 +3,62 @@
 <head>
   <title>Result</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
-<link rel="stylesheet" type="text/css" href="/styles/reset.css" />
-<link rel="stylesheet" type="text/css" href="/styles/base.css" />
-<link rel="stylesheet" type="text/css" href="/styles/layout.css" />
-<link rel="stylesheet" type="text/css" href="/styles/modules.css" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/base.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/modules.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/recipe.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Anton|Exo+2" rel="stylesheet">
 </head>
+
 <body>
-  <header>
-<h1>Result</h1>
-</header>
+  <div class="result-container">
 
-<main>
-  <nav class="sidenav">
-    <ul><a href="/views/index.ejs">Home</a></ul>
-    <ul><a href="/views/pages/searches/inventory.ejs">Your Refrigerator</a></ul>
-    <ul><a href="/views/pages/searches/shop.ejs">Shop For More Food</a></ul>
-    <ul><a href="/views/aboutus.ejs">About Us</a></ul>
-  </nav>
-  
+    <div class="recipe-nav">
+      <span class="navbar-toggle" id="js-navbar-toggle">
+        <i class="fa fa-bars"></i>
+      </span>
+    
+      <div class="navigation-bar">
+        <ul class="main-navigation" id="js-navigation">
+          <li><a href="/views/index.ejs">Home</a></li>
+          <li><a href="/views/aboutus.ejs">About Us</a></li>
+        </ul>
+      </div>
+    
+    </div>
 
-  <ul>
-    <li><%=recipeResultObject.result_title %>"</li> 
-    <img src="<%=recipeResultObject.result_image %>"/> 
-      <li><%=recipeResultObject.result_url %></li>
-      <li><%=recipeResultObject.diets %></li>
-  </ul>
+    <div class="result-header">
+      <h1>Result</h1>
+    </div>
 
-  <form action="/recipes" method="post">
-    <input type="hidden" name="result_title" value="<%=recipeResultObject.result_title %>">
-    <input type="hidden" name="result_image" value="<%=recipeResultObject.result_image %>">
-    <input type="hidden" name="result_url" value="<%=recipeResultObject.result_url %>">
-    <input type="hidden" name="diets" value="<%=recipeResultObject.diets %>">
+    <div class="result-show">
+        <ul>
+            <h3><%=recipeResultObject.result_title %>"</h3> 
+            <img src="<%=recipeResultObject.result_image %>" class="result-img"/> 
+            <li><a href="<%=recipeResultObject.result_url %>"><%=recipeResultObject.result_url %></a></li>
+            <p>Dietary Restriction: <%=recipeResultObject.diets %></p>
+        </ul>
 
-      <button type="submit" >Save Recipe</button>
-    </form>
+        <form action="/recipes" method="post">
+            <input type="hidden" name="result_title" value="<%=recipeResultObject.result_title %>">
+            <input type="hidden" name="result_image" value="<%=recipeResultObject.result_image %>">
+            <input type="hidden" name="result_url" value="<%=recipeResultObject.result_url %>">
+            <input type="hidden" name="diets" value="<%=recipeResultObject.diets %>">
 
+            <button type="submit" class="result-button">Save Recipe</button>
+        </form>
+    </div>
  
   
+    <div class="result-footer">
+      <p>CopyRight2018</p>
+    </div>
+  
+  </div>
 
-</main>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/app.js"></script>
 </body>
-<footer>
-  <p>CopyRight2018</p>
-</footer>
 </html>
