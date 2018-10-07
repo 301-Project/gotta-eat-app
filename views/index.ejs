@@ -39,8 +39,8 @@
 		<ul class="main-bookmark" id="js-bookmark">
 			<% recipes.forEach(recipe => { %>
 			<li class="recipe-item" data-id="<%= recipe.id %>">
-			<li><a href="<%= recipe.result_url %>">Title:
-					<%= recipe.result_title %></a></li>
+			<li><p><a href="<%= recipe.result_url %>">Title:
+					<%= recipe.result_title %></a></p></li>
 			</li>
 			<% }) %>
 		</ul>

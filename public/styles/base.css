@@ -4,34 +4,37 @@
 
 
 body {
-    background-color: ivory;
+    /* background-color: ivory; */
+    background-color: brown;
     margin: 0 auto;
     text-align: center;
 }
 
 h1 {
-    font-size: 72px;
+    font-size: 7vw;
     font-family: 'Mali';
     margin-bottom: 10px;
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 4vw;
     font-family: 'Roboto Condensed';
     margin-bottom: 10px;
 }
 
 p {
     font-family: 'PT Sans Narrow';
-    font-size: 16pt;
+    font-size: 2vw;
     line-height: 1.2em;
 }
 
 a {
     text-decoration: none;
 }
+
 img {
-    max-width: 300px;
+    width: 40vw;
+    margin-top: 5%;
 }
 
 

@@ -1,12 +1,6 @@
-/*
-
-* Navigation Bar
-
-*/
 
 .navigation-bar{
     background-color: #333;
-    top: 10px;
 }
 
 .navigation-bar li{
@@ -15,16 +9,13 @@
 }
 
 .navigation-bar a{
-    float: center; 
+    float: left; 
     display: block;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 12px;
     text-decoration: none;
 }
-
-
-
 
 .bookmark p{
   text-align: right;
@@ -38,6 +29,7 @@
   padding: 14px 12px;
   text-decoration: none;
 }
+
 .navbar-toggle{
     position: absolute;
     top: 10px;
@@ -46,17 +38,20 @@
     color: rgba(255,255,255,0.8);
     font-size: 24px;
 }
+
 .bookmark-toggle{
-  right: 5px;
+  right: 2vw;
   
   cursor: pointer;
   color: #333;
-  font-size: 24px;
+  font-size: 3vw;
 }
+
 .main-navigation{
     list-style-type: none;
     display: none; 
 }
+
 .main-bookmark li{
 font-size: 24px;
 font-family: 'Mali';
@@ -64,27 +59,23 @@ font-style: italic bolder;
 padding-top: 20px;
 
 }
+
 .main-bookmark{
   list-style-type: none;
   display: none;
   
 }
+
 .main-bar{
   padding-top: 15vh;
   text-align: center;
 }
+
 .active{
     display:block;
     -webkit-transition: display 2s; /* Safari */
     transition: display 2s;
 }
-
-/* 
-
-* Banner Section
-
-*/
-
 
 
 .inventory-banner {
@@ -94,16 +85,11 @@ padding-top: 20px;
     background-size: cover;
     background-color: rgba(0,0,0,0.4)
 }
+
 .recipe-banner {
   background-image: url(image/refrige-open.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-}
-.inventory-banner > h1{
-  /* opacity: 1;
-  color: black;
-  z-index: 100;
-  display: block; */
 }
 
 
@@ -115,7 +101,11 @@ padding-top: 20px;
 .main-button a{
     text-decoration: none;
     color: black;
-    text-shadow: 2px 2px white;
+    text-shadow: 0.2vw 0.2vw white;
+}
+
+.about-h1 {
+  font-size: 5.5vw; 
 }
 
 /* .landingPageButton {
@@ -162,9 +152,6 @@ padding-top: 20px;
 
 .about-text {
   text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-  width: 800px;
 }
 
 .button-home{
