@@ -5,8 +5,8 @@
 	display: grid;
 	grid-template-columns: 10vw 80vw 10vw;
 	/* grid-template-columns: 50px 500px 50px; */
-	/* grid-template-rows: 10vw 80vw 5vw; */
-	grid-template-rows: 50px 500px 200px;
+	/* grid-template-rows: 10vw 80vw; */
+	grid-template-rows: 50px 500px;
 
 }
 
@@ -84,34 +84,40 @@ background: #333;}
 
 
 /* HOME MOBILE VIEW */
-@media (max-width: 220px) {
-	.p {
-		font-size: 10px;       
-		color: purple;
+@media (max-width: 500px) {
+	p {
+		font-size: 10px;
 	}
 
 	.container{
-		display: grid;
-		grid-template-columns: 10px 200px 10px;
-		grid-template-rows: 35px 200px 50px;
+		grid-template-columns: 5px 480px 5px;
+		grid-template-rows: 40px 500px;
 	}
 
 	h1 {
-		font-size: 15px;
+		font-size: 20px;
 	}
 
 	input.input-home {
-		font-size: 4px;
+		font-size: 10px;
 		margin-bottom: 15px;
 	}
 
 	button.button-home {
-		font-size: 4px;
+		font-size: 10px;
 	}
 
 	.main-button a{
-		font-size: 5px;
+		font-size: 10px;
 	}
+	
+	.main-bookmark a {
+		font-size: 10px;
+	}
+
+	.bookmark p{
+		font-size: 13px;
+	  }
 
 }
 
@@ -124,9 +130,10 @@ background: #333;}
 }
 
 /* ABOUT MOBILE VIEW */
-@media (max-width: 600px){
+@media (max-width: 500px){
+
 	.about-text {
-		font-size: 10px;       
+		font-size: 10px;  
 	  }
 
 	.about-h1 {
