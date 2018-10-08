@@ -122,13 +122,6 @@ button.button-home {
 }
 
 
-/* INVENTORY MOBILE VIEW */
-@media (max-width: 700px){
-	.about-banner, .inventory-button{
-		grid-column: 1 / span 4;
-	}
-}
-
 /* ABOUT MOBILE VIEW */
 @media (max-width: 500px){
 
@@ -150,6 +143,30 @@ button.button-home {
 
 }
 
+/* "RESULT" MOBILE VIEW */
+@media (max-width: 500px){
 
+	/* .about-text {
+		font-size: 10px;  
+	  } */
+
+	.result-h1 {
+		font-size: 20px;
+	}
+
+	h3 {
+		font-size: 18px;
+	}
+
+	/* h2 {
+		font-size: 15px;
+	} */
+
+	img {
+		width: 150px;
+	}
+
+
+}
 
 
