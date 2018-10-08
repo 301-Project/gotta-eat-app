@@ -62,17 +62,26 @@ padding-top: 0.5%;
 
 /* ABOUT-US EJS STYLING */
 .about-h1 {
-  font-size: 5.5vw; 
+  margin-top: 3%;
+  font-size: 3.5vw; 
 }
 
 .about-img {
-  width: 300px;
+  width: 45%;
+  border: 2px solid black;
+  border-radius: 20px;
 }
 
 .about-text {
   text-align: left;
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.about-footer {
+  margin-top: 15%;
+}
 
 /* RECIPE EJS STYLING */
 
@@ -114,7 +123,7 @@ padding-top: 0.5%;
 }
 
 .recipe-h1 {
-    font-size: 4vw;
+    font-size: 40px;
     font-family: 'Mali';
     padding-bottom: 3%;
 }
@@ -122,7 +131,7 @@ padding-top: 0.5%;
 /* RESULT EJS STYLING */
 
 .result-h1 {
-  font-size: 5vw;
+  font-size: 3vw;
   font-family: 'Mali';
 }
 
@@ -167,6 +176,7 @@ display: grid;
   border-radius: 30px;
   margin-top: 12px;
   margin-bottom: 12px;
+  width: 30%;
 }
 
 .result-footer {
