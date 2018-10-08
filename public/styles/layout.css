@@ -51,7 +51,7 @@
 .container{
 	display: grid;
 	grid-template-columns: 10vw 80vw 10vw;
-	grid-template-rows: 50px 500px;
+	grid-template-rows: 50px 800px;
 }
 
 .bookmark{
@@ -65,13 +65,13 @@
 }
 
 input.input-home {
-	font-size: 2.5vw;
+	font-size: 1.5vw;
 	margin-bottom: 15px;
 
 }
 
 button.button-home {
-	font-size: 2.5vw;
+	font-size: 1.5vw;
 }
 
 
@@ -183,10 +183,6 @@ button.button-home {
 	h3 {
 		font-size: 18px;
 	}
-
-	/* h2 {
-		font-size: 15px;
-	} */
 
 	img {
 		width: 150px;
