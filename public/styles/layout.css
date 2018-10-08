@@ -160,7 +160,7 @@ button.button-home {
 	  }
 
 	.about-h1 {
-		font-size: 20px;
+		font-size: 22px;
 	}
 
 	h2 {
@@ -189,7 +189,7 @@ button.button-home {
 	}
 
 	.result-container {
-		grid-template-rows: 50px 80px 420px;
+		grid-template-rows: 50px 80px 320px;
 	}
 
 }
