@@ -146,12 +146,8 @@ button.button-home {
 /* "RESULT" MOBILE VIEW */
 @media (max-width: 500px){
 
-	/* .about-text {
-		font-size: 10px;  
-	  } */
-
 	.result-h1 {
-		font-size: 20px;
+		font-size: 26px;
 	}
 
 	h3 {
@@ -166,7 +162,25 @@ button.button-home {
 		width: 150px;
 	}
 
+	.result-container {
+		grid-template-rows: 50px 80px 420px;
+	}
 
 }
 
+/* "RECIPE" MOBILE VIEW */
+@media (max-width: 500px){
 
+	.recipe-h1 {
+		font-size: 26px;
+	}
+
+	h3 {
+		font-size: 18px;
+	}
+
+	.recipe-img {
+		width: 150px;
+	}
+
+}

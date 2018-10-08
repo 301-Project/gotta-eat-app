@@ -31,8 +31,8 @@
     background: #333;
 }
 
-.about-img {
-    width: 350px;
+.recipe-img {
+    width: 40vw;
 }
 
 .recipe-button {
@@ -41,8 +41,8 @@
 	justify-content: space-evenly;
 }
 
-h1 {
-    font-size: 45px;
+.recipe-h1 {
+    font-size: 7vw;
     font-family: 'Mali';
 }
 
