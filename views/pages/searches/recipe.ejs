@@ -6,9 +6,8 @@
   <link href="https://fonts.googleapis.com/css?family=Mali:700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
   <link rel="stylesheet" type="text/css" href="/styles/base.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/module.css" />
   <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
-  <link rel="stylesheet" type="text/css" href="/styles/modules.css" />
-  <link rel="stylesheet" type="text/css" href="/styles/recipe.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Anton|Exo+2" rel="stylesheet">
   
@@ -16,46 +15,48 @@
 <body>
  
   <div class="recipe-container">
-      <!-- <span class="navbar-toggle" id="js-recipe-toggle">
+      
+      <span class="navbar-toggle" id="js-navbar-toggle">
           <i class="fa fa-bars"></i>
-      </span> -->
+      </span>
+
       <div class="navigation-bar">
-        <ul class="main-navigation" id="js-recipe">
+        <ul class="main-navigation" id="js-navigation">
 
             <li><a href="/home">Home</a></li>
             <li><a href="/aboutus">About Us</a></li>
 
         </ul>
-      </div>
+      </div> <!-- close "navigation-bar" -->
 
-    
-
-
-    
-    <div class="recipe-show">
-        <div class="recipe-header">
-            <h1>Recipe</h1>
-          </div>
+      <div class="recipe-header">
+        <h1 class="recipe-h1">Recipe</h1>
+      </div> <!-- close "recipe-header" -->
       
-      <% recipeArray.forEach((item, index) => { %>
-        <form action="/picked-recipe/<%= item.recipe_id %>"" method = "post">
-          <h3><%=item.recipe_title %></h3>
-          <img src="<%=item.recipe_image %>" class="about-img"/> 
-        
-          <button type="submit" value= "<%=recipeArray[index].recipe_id %>" class="recipe-button">Select This Recipe</button>
-        </form>
-      <% }) %>   
-        
-
-    </div>
     
+      <div class="recipe-show">
+          
+          <% recipeArray.forEach((item, index) => { %>
+            <form action="/picked-recipe/<%= item.recipe_id %>"" method = "post">
+              <h3><%=item.recipe_title %></h3>
+              <img src="<%=item.recipe_image %>" class="recipe-img"/> 
+              
+              <button type="submit" value= "<%=recipeArray[index].recipe_id %>" class="recipe-button">Select This Recipe</button>
+            </form>
+            <% }) %>   
+
+
+
+            <!-- put inside "recipe-show" so it doesn't cut off the display -->
+            
+          </div> <!-- close "recipe-show" -->
+               
+    </div> <!-- close "recipe-container" -->
+
     <div class="recipe-footer">
-        <p>CopyRight2018</p>
+      <p>CopyRight2018</p>
     </div>
 
-
-
-  </div>
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="/app.js"></script>
 </body>

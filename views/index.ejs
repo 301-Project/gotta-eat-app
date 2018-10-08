@@ -7,8 +7,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Mali:700" rel="stylesheet">
 	<link href="/styles/reset.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/base.css" rel="stylesheet" type="text/css" />
-	<link href="/styles/layout.css" rel="stylesheet" type="text/css" />
 	<link href="/styles/module.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/layout.css" rel="stylesheet" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
@@ -19,11 +19,12 @@
 	<span class="navbar-toggle" id="js-navbar-toggle">
 		<i class="fa fa-bars"></i>
 	</span>
+	
 	<div class="navigation-bar">
 		<ul class="main-navigation" id="js-navigation">
 			<li><a href="/aboutus">About Us</a></li>
 		</ul>
-	</div>
+	</div> <!-- close "navigation-bar" -->
 
 
 
@@ -34,7 +35,7 @@
 				Saved Recipes
 				<i class="fa fa-book"></i>
 			</p>
-		</div>
+		</div> <!-- close "bookmark" -->
 
 		<ul class="main-bookmark" id="js-bookmark">
 			<% recipes.forEach(recipe => { %>
@@ -51,18 +52,15 @@
 				<input class="input-home" type="text" name="search" placeholder="Enter Ingredient" required="required" />
 				<button class="button-home" type="submit">Search For Recipe</button>
 			</form>
-		</div>
-	</div>
-</div>
+		</div> <!-- close "main-bar" -->
 
-
-
-
+</div> <!-- close "main-button" -->
+</div> <!-- close "container" -->
 
 <div class="footer">
 	<p>CopyRight2018</p>
-</div>
-</div>
+</div> <!-- close "footer" -->
+
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="/app.js"></script>
 </body>
