@@ -19,11 +19,12 @@
 	<span class="navbar-toggle" id="js-navbar-toggle">
 		<i class="fa fa-bars"></i>
 	</span>
+	
 	<div class="navigation-bar">
 		<ul class="main-navigation" id="js-navigation">
 			<li><a href="/aboutus">About Us</a></li>
 		</ul>
-	</div>
+	</div> <!-- close "navigation-bar" -->
 
 
 
@@ -34,7 +35,7 @@
 				Saved Recipes
 				<i class="fa fa-book"></i>
 			</p>
-		</div>
+		</div> <!-- close "bookmark" -->
 
 		<ul class="main-bookmark" id="js-bookmark">
 			<% recipes.forEach(recipe => { %>
@@ -51,13 +52,15 @@
 				<input class="input-home" type="text" name="search" placeholder="Enter Ingredient" required="required" />
 				<button class="button-home" type="submit">Search For Recipe</button>
 			</form>
-		</div>
+		</div> <!-- close "main-bar" -->
 
-</div>
+</div> <!-- close "main-button" -->
 <div class="footer">
 	<p>CopyRight2018</p>
-</div>
-</div>
+</div> <!-- close "footer" -->
+</div> <!-- close "container" -->
+
+
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="/app.js"></script>
 </body>
