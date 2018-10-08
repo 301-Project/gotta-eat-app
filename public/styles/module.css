@@ -1,22 +1,4 @@
-
-.navigation-bar{
-    background-color: #333;
-}
-
-.navigation-bar li{
-    text-align: center;
-    margin: 15px auto;
-}
-
-.navigation-bar a{
-    float: left; 
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 10px 10px;
-    text-decoration: none;
-}
-
+/* INDEX EJS STYLING */
 .bookmark p{
   text-align: right;
 }
@@ -30,15 +12,6 @@
   text-decoration: none;
 }
 
-.navbar-toggle{
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    cursor: pointer;
-    color: rgba(255,255,255,0.8);
-    font-size: 24px;
-}
-
 .bookmark-toggle{
   right: 2vw;
   
@@ -47,15 +20,10 @@
   font-size: 3vw;
 }
 
-.main-navigation{
-    list-style-type: none;
-    display: none; 
-}
-
 .main-bookmark li{
-font-size: 24px;
+/* font-size: 24px;
 font-family: 'Mali';
-font-style: italic bolder;
+font-style: italic bolder; */
 padding-top: 20px;
 
 }
@@ -67,91 +35,36 @@ padding-top: 20px;
 }
 
 .main-bar{
-  padding-top: 15vh;
+  padding-top: 15vw;
   text-align: center;
 }
 
-.active{
-    display:block;
-    -webkit-transition: display 2s; /* Safari */
-    transition: display 2s;
-}
 
-
-.inventory-banner {
+/* .inventory-banner {
     background-image: url(image/open-refrige.png);
     opacity: 0.3;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgba(0,0,0,0.4)
-}
+} */
 
-.recipe-banner {
+/* .recipe-banner {
   background-image: url(image/refrige-open.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 
-.inventory-banner> h1{
+/* .inventory-banner> h1{
   color: black;
-}
+} */
 
 
 .main-button a{
     text-decoration: none;
     color: black;
     text-shadow: 0.2vw 0.2vw white;
-}
-
-.about-h1 {
-  font-size: 5.5vw; 
-}
-
-/* .landingPageButton {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 100px;
-    padding-right: 100px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border-radius: 40px;
-    font-size: 20px;
-    font-family: PT Sans Narrow;
-    text-shadow: 2px 10px black;
-} */
-
-
-#popup {
-  background: rgba(100, 100, 100, 0.6);
-  position: fixed;
-  display: none;
-  z-index: 5000;
-  height: 100%;
-  width: 100%;
-  left: 0;
-  top: 0;
-}
-#popup > form{
-  border-radius: 10px;
-  position: fixed;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 15px 0px rgba(#000000, 0.3);
-  padding: 30px 15px;
-  /* Width of popup can be changed */
-  width: 70%;
-  max-width: 600px;
-  z-index: 5001;
-  text-align: center;
-  border: 5px solid #9AD3DE;
-}
-
-.about-img {
-  width: 300px;
-}
-
-.about-text {
-  text-align: left;
+    font-size: 2.5vw;
 }
 
 .button-home{
@@ -171,4 +84,168 @@ padding-top: 20px;
   padding-top: 1%;
   padding-bottom: 1%;
 }
+
+/* ABOUT-US EJS STYLING */
+.about-h1 {
+  font-size: 5.5vw; 
+}
+
+/* .landingPageButton {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 40px;
+    font-size: 20px;
+    font-family: PT Sans Narrow;
+    text-shadow: 2px 10px black;
+} */
+
+
+/* #popup {
+  background: rgba(100, 100, 100, 0.6);
+  position: fixed;
+  display: none;
+  z-index: 5000;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+} */
+
+/* #popup > form{
+  border-radius: 10px;
+  position: fixed;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 15px 0px rgba(#000000, 0.3);
+  padding: 30px 15px; */
+  /* Width of popup can be changed */
+  /* width: 70%;
+  max-width: 600px;
+  z-index: 5001;
+  text-align: center;
+  border: 5px solid #9AD3DE;
+} */
+
+.about-img {
+  width: 300px;
+}
+
+.about-text {
+  text-align: left;
+}
+
+
+/* RECIPE EJS STYLING */
+
+.recipe-container {
+	display: grid;
+	grid-template-columns:10vw 80vw 10vw;
+    grid-template-rows: 50px 80px 2000px;
+    grid-gap: 1em;
+}
+
+.recipe-header {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    justify-content: space-evenly;
+}
+
+.recipe-show{
+    grid-column: 1/4;
+    grid-row: 3/4;
+}
+
+/* .navigation-bar, .recipe-footer {     THIS NEEDS TO BE MOVED!!!!!!!!!!!!!!!!!!!!!!!
+  grid-row: 1/2;
+	grid-column: 1/4;
+} */
+
+.recipe-footer {
+  grid-row: 1/2;
+	grid-column: 1/4;
+}
+
+
+.result-footer {
+    grid-column: 1/4;
+}
+
+
+.recipe-footer, .result-footer {
+    background: #333;
+}
+
+.recipe-img {
+    width: 40vw;
+}
+
+.recipe-button {
+	grid-column: 2/3;
+	grid-row: 2/3;
+	justify-content: space-evenly;
+}
+
+.recipe-h1 {
+    font-size: 7vw;
+    font-family: 'Mali';
+}
+
+/* RESULT EJS STYLING */
+
+.result-h1 {
+  font-size: 5vw;
+  font-family: 'Mali';
+}
+
+.result-container {
+display: grid;
+  grid-template-columns: 10vw 80vw 10vw;
+  grid-template-rows: 50px 80px 650px;
+  grid-gap: 1em;
+}
+
+.result-header {
+  grid-column: 1/4;
+  grid-row: 2/3;
+}
+
+.result-show{
+  grid-column: 1/4;
+  grid-row: 3/4;
+}
+
+.recipe-button {
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  padding: 5px 25px;
+}
+
+.result-button{
+  display: block;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  padding: 5px 25px;
+}
+
+.result-img {
+  border: 10px solid rgb(49, 39, 39);
+  padding: 10px;
+  border-radius: 30px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+
+
+
+
+
 

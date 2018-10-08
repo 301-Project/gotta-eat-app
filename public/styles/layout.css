@@ -1,28 +1,62 @@
+/* NAV BAR STYLING */
+.navigation-bar, .footer{
+	grid-column: 1/4;
+}
+
+.navigation-bar{
+    background-color: #333;
+}
+
+.navigation-bar li{
+    text-align: center;
+    margin: 15px auto;
+}
+
+.navigation-bar a{
+    float: left; 
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.navbar-toggle{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    color: rgba(255,255,255,0.8);
+    font-size: 24px;
+}
+
+.main-navigation{
+    list-style-type: none;
+    display: none; 
+}
+
+.active{
+    display:block;
+    -webkit-transition: display 2s; /* Safari */
+    transition: display 2s;
+}
+
+/* FOOTER STYLING */
+.footer {
+	background: #333;
+}
+
 /* INDEX EJS STYLING */
 
 .container{
 	display: grid;
 	grid-template-columns: 10vw 80vw 10vw;
-	/* grid-template-columns: 50px 500px 50px; */
-	/* grid-template-rows: 10vw 80vw; */
 	grid-template-rows: 50px 500px;
-
 }
-
-.navigation-bar, .footer{
-	grid-column: 1/4;
-}
-
-.inventory-banner, .about-banner{
-	grid-column: 1 / span 3;
-}
-
 
 .bookmark{
 	grid-column: 3/ 4 span
-	
 }
-
 
 .main-button{
 	grid-column: 2/3;
@@ -40,11 +74,8 @@ button.button-home {
 	font-size: 2.5vw;
 }
 
-.footer {
-	background: #333;
-}
 
-/* ABOUT US PAGE STYLING */
+/* ABOUT-US EJS STYLING */
 
 .a { grid-area: a; }
 .b { grid-area: b; }
@@ -53,7 +84,6 @@ button.button-home {
 .e { grid-area: e; }
 .f { grid-area: f; }
 .g { grid-area: g; }
-
 
 .about-container {
   /* width: 100%; */
@@ -170,6 +200,10 @@ button.button-home {
 
 /* "RECIPE" MOBILE VIEW */
 @media (max-width: 500px){
+
+	.recipe-container {
+		grid-template-rows: 50px 80px 1200px;
+	}
 
 	.recipe-h1 {
 		font-size: 26px;

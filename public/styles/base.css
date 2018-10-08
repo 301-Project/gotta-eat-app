@@ -13,7 +13,7 @@ body {
 h1 {
     font-size: 7vw;
     font-family: 'Mali';
-    margin-bottom: 10px;
+    margin-bottom: 10%;
 }
 
 h2 {
@@ -22,10 +22,23 @@ h2 {
     margin-bottom: 10px;
 }
 
-p {
+h3 {
+    font-size: 2.5vw;
+    font-family: 'Mali';
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* p {
     font-family: 'PT Sans Narrow';
     font-size: 2vw;
     line-height: 1.2em;
+} */
+
+p {
+    font-size: 15px;
+    font-family: 'Exo 2';
+    /* font-weight: bolder; */
 }
 
 a {
